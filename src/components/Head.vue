@@ -29,8 +29,9 @@ export default {
 .head {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 0 12px;
   color: white;
+  height: 50px;
 
   &-text {
     font-size: 1.5rem;

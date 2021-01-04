@@ -101,7 +101,7 @@ body,html{
 .right-container {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 50px;
   bottom: 0;
   width: 300px;
   background:rgba(0,0,0,0.5);
