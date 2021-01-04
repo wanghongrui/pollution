@@ -3,6 +3,8 @@ import App from './App.vue'
 
 import store from './store/index'
 
+import "./assets/css/base.css";
+
 var echarts = require('echarts');
 
 // 创建app

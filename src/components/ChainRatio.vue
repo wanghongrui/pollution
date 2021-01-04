@@ -1,12 +1,15 @@
 <template>
     <div class="chainration">
-		<div>
-			<div></div>
-		</div>
-		<div>
-			<div>今日新增</div>
-			<div>
-				
+		<div class="number-tip-wrap">
+			<div class="number-tip">
+				<div>总地块数</div>
+			</div>
+			<div class="number-tip">
+				<div class="label">今日下降</div>
+				<div>
+					<i class="iconfont">&#xe6da;</i>
+					<span>55</span>
+				</div>
 			</div>
 		</div>
         <div class="ration_chart"></div>
@@ -171,9 +174,26 @@ export default {
 <style lang="scss">
 .chainration{
 	display: inline-block;
+
 	.ration_chart{
 		width:300px;
 		height: 300px;
 	}
+	.number-tip-wrap{
+		display: flex;
+		position: relative;
+
+		.number-tip{
+			color:#ffff;
+			background:rgba(0,0,0,0.5);
+			display: inline-block;
+			flex: 1;
+			.label{
+				font-size: 12px;
+			}
+		}
+	}
+
+	
 }
 </style>
