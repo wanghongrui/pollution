@@ -84,13 +84,13 @@ const chart_option = {
 				// 		}
 				// 	}
 				// },
-				labelLine: {
-					normal: {
-						lineStyle: {
-							color: '#ff9300'
-						}
-					}
-				},
+				// labelLine: {
+				// 	normal: {
+				// 		lineStyle: {
+				// 			color: '#ff9300'
+				// 		}
+				// 	}
+				// },
 				itemStyle: {
 					
 				}
