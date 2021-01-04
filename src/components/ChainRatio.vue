@@ -1,5 +1,14 @@
 <template>
     <div class="chainration">
+		<div>
+			<div></div>
+		</div>
+		<div>
+			<div>今日新增</div>
+			<div>
+				
+			</div>
+		</div>
         <div class="ration_chart"></div>
     </div>
 </template>
@@ -8,8 +17,20 @@
 
 // 指定图表的配置项和数据
 const chart_option = {
-	backgroundColor: '#012b60',
-	// color:['#41e3bf','#e91f63','#259dd2'],
+	backgroundColor: 'rgba(0,0,0,0.5)',
+	// graphic 是原生图形元素组件。可以支持的图形元素包括：image, text, circle, sector, ring, polygon, polyline, rect, line, bezierCurve, arc, group,
+	graphic: {
+		type: 'text',               // [ default: image ]用 setOption 首次设定图形元素时必须指定。image, text, circle, sector, ring, polygon, polyline, rect, line, bezierCurve, arc, group,
+		top: 'center',              // 描述怎么根据父元素进行定位。top 和 bottom 只有一个可以生效。如果指定 top 或 bottom，则 shape 里的 y、cy 等定位属性不再生效。『父元素』是指：如果是顶层元素，父元素是 echarts 图表容器。如果是 group 的子元素，父元素就是 group 元素。
+		left: 'center',             // 同上
+		style: {
+			text: '地块对比',       // 文本块文字。可以使用 \n 来换行。[ default: '' ]
+			fill: '#fff',           // 填充色。
+			fontSize: 12,           // 字体大小
+			fontWeight: 'bold'		// 文字字体的粗细，可选'normal'，'bold'，'bolder'，'lighter'
+		}
+	},
+
 	series: [{
 		name: '访问来源',
 		type: 'pie',
@@ -47,7 +68,7 @@ const chart_option = {
 		},
 		data: [{
 				value: 18,
-				name: '负面舆论',
+				name: '已处理',
 				label: {
 					normal: {
 						textStyle: {
@@ -69,7 +90,7 @@ const chart_option = {
 
 			{
 				value: 34,
-				name: '正面舆论',
+				name: '未处理',
 				label: {
 					normal: {
 						textStyle: {
@@ -109,10 +130,8 @@ export default {
     methods:{
         // 初始化
         init(){
-            console.log(this.$echarts.graphic);
             let chartClass='.ration_chart';
 			let chartDiv=this.$el.querySelector(chartClass);
-			console.log(chartDiv)
             // 初始化值
             chart_option.series[0].data[0].itemStyle={
                 normal: {

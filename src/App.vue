@@ -6,7 +6,7 @@
     <div class="label">处理地块数:</div>
     <Digital :number="888" />
   </div>
-
+  <!--环比组件-->
   <chain-ratio></chain-ratio>
 
   <div class="map-container">
@@ -22,9 +22,8 @@
 import Head from "./components/Head.vue";
 import Map from "./components/Map";
 import Digital from "./components/Digital"; // 数字滚动插件
-import chainration from "./components/ChainRatio"; //环比插件
-import ChainRatio from "./components/ChainRatio.vue";
-import Right from "./components/Right";
+import ChainRatio from './components/ChainRatio.vue';//环比插件
+import Right from './components/Right';
 
 export default {
   name: "App",
@@ -32,7 +31,6 @@ export default {
     Head,
     Map,
     Digital,
-    chainration,
     ChainRatio,
     Right,
   },
@@ -45,6 +43,10 @@ export default {
 </script>
 
 <style lang="scss">
+body,html{
+    margin: 0;
+    padding: 0;
+}
 :root {
   background: #0f2a42;
   color: #2c3e50;
