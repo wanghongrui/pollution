@@ -26,11 +26,17 @@ export default {
     },
     data(){
         return {
-            computeNumber:['0','0','0',',','9','1','7']
+            // computeNumber:['0','0','0',',','9','1','7']
         }
     },
     mounted(){
         this.increaseNumber();
+    },
+    computed:{
+        computeNumber(){
+            let number=this.number.toString().padStart(6, '0');
+            return [...number] ;
+        }
     },
     methods:{
         // 定时增长数字

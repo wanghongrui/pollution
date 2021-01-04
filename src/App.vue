@@ -4,7 +4,7 @@
   </div>
   <div class="digital-wrap">
     <div class="label">处理地块数:</div>
-    <Digital :number='8'/>
+    <Digital :number='888'/>
   </div>
 
   <div class="map-container">
