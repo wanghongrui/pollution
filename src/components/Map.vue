@@ -11,9 +11,10 @@
 </template>
 
 <script>
-import Mapbox from "./Mapbox";
-import Styles from "./Styles";
+import Mapbox from "@/components/map/Mapbox";
+import Styles from "@/components/map/Styles";
 import loader from "load-script-promise";
+import bbox from "@turf/bbox";
 
 /**
  * 1.土壤详查重点行业企业
@@ -31,21 +32,67 @@ export default {
     data2() {
       return this.$store.state.data2;
     },
+    item() {
+      return this.$store.state.item;
+    },
   },
   mounted() {
     setTimeout(() => {
       this.init();
-    }, 1000);
+    }, 2000);
   },
   watch: {
     data2() {
       this.setData2();
     },
+    item() {
+      if (this.item) {
+        console.log(this.item);
+        this.fitBounds(this.item);
+      }
+    },
   },
   methods: {
     init() {
       loader.loadScript("./data/data2.js").then(() => {
-        this.$store.commit("data2_changed", window.data2);
+        const data = window.data2.features.map((d, i) => {
+          const origin = d.properties;
+
+          /**
+            DCDW	调查单位
+            JCDW监测单位
+            PSSJ	评审时间
+            CCQMGDW	拆除前敏感单位
+            ZZJL	最终结论
+            GHYT	规划用途
+            SFQDXC	是否启动详查
+            TZWRYZ	特征污染因子
+            ZYWRQY	主要污染区域
+            CBWRQK	超标污染情况
+           */
+
+          d.properties = {
+            id: i,
+            name: origin.DKMC,
+            region: origin.SZXZQ,
+            address: origin.DZ,
+            area: origin.MJ,
+
+            dcdw: origin.DCDW,
+            jcdw: origin.JCDW,
+            pssj: origin.PSSJ,
+            ccqmgdw: origin.CCQMGDW,
+            zzjl: origin.ZZJL,
+            ghyt: origin.GHYT,
+            sfqdxc: origin.SFQDXC,
+            tzwryz: origin.TZWRYZ,
+            zywrqy: origin.ZYWRQY,
+            cbwrqk: origin.CBWRQK,
+          };
+          return d;
+        });
+
+        this.$store.commit("data2_changed", data);
       });
     },
     setData2() {
@@ -55,8 +102,13 @@ export default {
 
       this.addLayer(this.data2);
     },
-    addLayer(data) {
+    addLayer(features) {
       const dataSource = map.getSource("data");
+
+      const data = {
+        type: "FeatureCollection",
+        features,
+      };
 
       if (dataSource) {
         dataSource.setData(data);
@@ -77,14 +129,20 @@ export default {
         });
 
         map.on("click", "data", (e) => {
-          const id = e.features[0].properties.OBJECTID;
+          const id = e.features[0].properties.id;
           data.features.forEach((f) => {
-            if (f.properties.OBJECTID === id) {
+            if (f.properties.id === id) {
               this.$store.commit("item_changed", f);
             }
           });
         });
       }
+    },
+    fitBounds(feature) {
+      const bounds = bbox(feature);
+      map.fitBounds(bounds, {
+        padding: 200,
+      });
     },
   },
 };

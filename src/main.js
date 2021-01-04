@@ -6,10 +6,10 @@ import store from './store/index'
 var echarts = require('echarts');
 
 // 创建app
-const app=createApp(App);
-app.use(store)
-  .mount('#app');
-
+const app = createApp(App);
 
 // 配置全局属性
 app.config.globalProperties.$echarts = echarts;
+
+app.use(store)
+  .mount('#app');

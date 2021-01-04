@@ -12,13 +12,18 @@
   <div class="map-container">
     <Map />
   </div>
+
+  <div class="right-container">
+    <Right />
+  </div>
 </template>
 
 <script>
 import Head from "./components/Head.vue";
-import Map from "./components/map/Map";
+import Map from "./components/Map";
 import Digital from "./components/Digital"; // 数字滚动插件
 import ChainRatio from './components/ChainRatio.vue';//环比插件
+import Right from './components/Right';
 
 export default {
   name: "App",
@@ -26,7 +31,8 @@ export default {
     Head,
     Map,
     Digital,
-    ChainRatio
+    ChainRatio,
+    Right
   },
 };
 </script>
@@ -72,5 +78,14 @@ body,html{
   & > div{
     display: inline-block;
   }
+}
+
+.right-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: rgb(34, 34, 34);
 }
 </style>
