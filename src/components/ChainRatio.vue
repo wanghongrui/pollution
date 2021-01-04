@@ -39,6 +39,13 @@ const chart_option = {
 		}
 	},
 
+ 	grid:{
+		x: 10, //默认是80px
+		y: 10, //默认是60px
+		x2: 10, //默认80px
+		y2: 10 //默认60px
+	},
+
 	series: [{
 		name: '访问来源',
 		type: 'pie',
@@ -184,8 +191,8 @@ export default {
 	top: 50px;
 
 	.ration_chart{
-		width:300px;
-		height: 200px;
+		width:200px;
+		height: 100px;
 	}
 	.number-tip-wrap{
 		display: flex;
