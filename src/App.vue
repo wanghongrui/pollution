@@ -7,6 +7,8 @@
     <Digital :number='888'/>
   </div>
 
+  <chain-ratio></chain-ratio>
+
   <div class="map-container">
     <Map />
   </div>
@@ -16,13 +18,17 @@
 import Head from "./components/Head.vue";
 import Map from "./components/map/Map";
 import Digital from "./components/Digital"; // 数字滚动插件
+import chainration from "./components/ChainRatio"; //环比插件
+import ChainRatio from './components/ChainRatio.vue';
 
 export default {
   name: "App",
   components: {
     Head,
     Map,
-    Digital
+    Digital,
+    chainration,
+    ChainRatio
   },
 };
 </script>
