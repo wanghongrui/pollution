@@ -23,7 +23,7 @@
 <script>
 // 指定图表的配置项和数据
 const chart_option = {
-  backgroundColor: "rgba(0,0,0,0.5)",
+  backgroundColor: "rgba(0,0,0, 0)",
   // graphic 是原生图形元素组件。可以支持的图形元素包括：image, text, circle, sector, ring, polygon, polyline, rect, line, bezierCurve, arc, group,
   graphic: {
     type: "text", // [ default: image ]用 setOption 首次设定图形元素时必须指定。image, text, circle, sector, ring, polygon, polyline, rect, line, bezierCurve, arc, group,
@@ -36,12 +36,17 @@ const chart_option = {
       fontWeight: "bold", // 文字字体的粗细，可选'normal'，'bold'，'bolder'，'lighter'
     },
   },
-
+  // grid:{
+  // 	x: 10, //默认是80px
+  // 	y: 10, //默认是60px
+  // 	x2: 10, //默认80px
+  // 	y2: 10 //默认60px
+  // },
   series: [
     {
       name: "访问来源",
       type: "pie",
-      radius: ["30%", "40%"],
+      radius: ["60%", "80%"],
       avoidLabelOverlap: false,
       // label: {
       // 	normal: {
@@ -61,7 +66,7 @@ const chart_option = {
       // },
       labelLine: {
         normal: {
-          show: true,
+          show: false,
           length: 4,
           length2: 5,
         },
@@ -94,7 +99,6 @@ const chart_option = {
           // },
           itemStyle: {},
         },
-
         {
           value: 34,
           name: "未处理",
@@ -119,7 +123,6 @@ const chart_option = {
     },
   ],
 };
-
 export default {
   name: "chainration",
   data() {
@@ -151,7 +154,7 @@ export default {
           ]),
           borderColor: "#ff9300",
           shadowColor: "rgba(255,147,0, 0.9)",
-          shadowBlur: 30,
+          // shadowBlur: 30,
         },
       };
       chart_option.series[0].data[1].itemStyle = {
@@ -168,7 +171,7 @@ export default {
           ]),
           borderColor: "#00e6fc",
           shadowColor: "rgba(0,230,252, .9)",
-          shadowBlur: 30,
+          // shadowBlur: 30,
         },
       };
       // 初始化图表
@@ -183,26 +186,23 @@ export default {
   z-index: 10;
   display: flex;
   position: relative;
-	align-items: center;
-	width: 100%;
-	height: 100%;
+  background: rgba(0, 0, 0, 0.6);
 
   .ration_chart {
-    width: 100px;
-    height: 100px;
+    min-width: 120px;
+    min-height: 120px;
   }
   .number-tip-wrap {
-		flex: 1;
+    flex: 1;
     display: flex;
+    align-items: center;
     position: relative;
-    line-height: 30px;
+
     .number-tip {
       color: #ffff;
-      background: rgba(0, 0, 0, 0.5);
       display: inline-block;
       flex: 1;
       padding-left: 14px;
-
       .label {
         font-size: 12px;
       }

@@ -114,7 +114,7 @@ html {
   position: absolute;
   left: 0;
   top: 50px;
-  width: 300px;
+  width: 320px;
   background: rgba(0, 0, 0, 0.5);
 }
 </style>
