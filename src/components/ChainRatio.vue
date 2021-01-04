@@ -42,7 +42,7 @@ const chart_option = {
 	series: [{
 		name: '访问来源',
 		type: 'pie',
-		radius: ['20%', '30%'],
+		radius: ['30%', '40%'],
 		avoidLabelOverlap: false,
 		label: {
 			normal: {
@@ -127,8 +127,6 @@ export default {
         }
     },
     mounted(){
-        console.log("dsdf");
-        console.log(this.$echarts);
         // 初始化图表
         this.$nextTick(()=>{
             this.init();
