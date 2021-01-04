@@ -3,7 +3,9 @@
     <Head />
   </div>
   <!--环比组件-->
-  <chain-ratio></chain-ratio>
+  <div class="left-container">
+    <ChainRatio />
+  </div>
 
   <div class="map-container">
     <Map />
@@ -18,8 +20,8 @@
 import Head from "./components/Head.vue";
 import Map from "./components/Map";
 import Digital from "./components/Digital"; // 数字滚动插件
-import ChainRatio from './components/ChainRatio.vue';//环比插件
-import Right from './components/Right';
+import ChainRatio from "./components/ChainRatio.vue"; //环比插件
+import Right from "./components/Right";
 
 export default {
   name: "App",
@@ -39,9 +41,10 @@ export default {
 </script>
 
 <style lang="scss">
-body,html{
-    margin: 0;
-    padding: 0;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 :root {
   background: #0f2a42;
@@ -64,7 +67,7 @@ body,html{
   left: 0;
   top: 0;
   z-index: 1;
-  background:rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   width: 100%;
 }
 
@@ -104,6 +107,14 @@ body,html{
   top: 50px;
   bottom: 0;
   width: 300px;
-  background:rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.left-container {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.5);
 }
 </style>

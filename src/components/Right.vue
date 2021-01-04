@@ -41,6 +41,7 @@ export default {
 .panel {
   position: relative;
   padding: 20px;
+  height: 100%;
   display: flex;
   flex-direction: column;
 
