@@ -3,7 +3,11 @@
 		<div class="number-tip-wrap">
 			<div class="number-tip tip_1">
 				<div>总地块数</div>
-				<div class="number">677</div>
+				<div>
+					<span class="number">677</span>
+					<span class="last-tip">宗</span>
+				</div>
+
 			</div>
 			<div class="number-tip">
 				<div class="label">今日下降</div>
@@ -177,22 +181,33 @@ export default {
 	z-index: 10;
     display: inline-block;
 	position: relative;
-	top: 55px;
+	top: 50px;
 
 	.ration_chart{
 		width:300px;
-		height: 300px;
+		height: 200px;
 	}
 	.number-tip-wrap{
 		display: flex;
 		position: relative;
-
+		line-height: 30px;
 		.number-tip{
 			color:#ffff;
 			background:rgba(0,0,0,0.5);
 			display: inline-block;
 			flex: 1;
+			padding-left: 14px;
+
 			.label{
+				font-size: 12px;
+			}
+		}
+		.tip_1{
+			.number{
+				color:#68c713;
+				font-size: 25px;
+			}
+			.last-tip{
 				font-size: 12px;
 			}
 		}
