@@ -11,6 +11,7 @@
     "@turf/mask": "^5.1.5",
     "core-js": "^3.6.5",
     "echarts": "^5.0.0",
+    "load-script-promise": "^1.0.4",
     "vue": "^3.0.0",
     "vuex": "^4.0.0-0"
   },
