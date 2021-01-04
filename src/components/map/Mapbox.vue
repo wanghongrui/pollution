@@ -25,7 +25,6 @@ export default {
 
       const setting = () => {
         if (map.isStyleLoaded()) {
-          console.log("哒哒哒");
           this.setBorder();
 
           map.off("sourcedata", setting);
