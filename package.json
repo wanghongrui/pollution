@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@turf/bbox": "^6.0.1",
+    "@turf/mask": "^5.1.5",
     "core-js": "^3.6.5",
     "echarts": "^5.0.0",
     "vue": "^3.0.0",
