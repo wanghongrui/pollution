@@ -4,7 +4,7 @@
   </div>
   <div class="digital-wrap">
     <div class="label">处理地块数:</div>
-    <Digital :number='888'/>
+    <Digital :number="888" />
   </div>
 
   <chain-ratio></chain-ratio>
@@ -13,7 +13,7 @@
     <Map />
   </div>
 
-  <div class="right-container">
+  <div class="right-container" v-if="item">
     <Right />
   </div>
 </template>
@@ -23,8 +23,8 @@ import Head from "./components/Head.vue";
 import Map from "./components/Map";
 import Digital from "./components/Digital"; // 数字滚动插件
 import chainration from "./components/ChainRatio"; //环比插件
-import ChainRatio from './components/ChainRatio.vue';
-import Right from './components/Right'
+import ChainRatio from "./components/ChainRatio.vue";
+import Right from "./components/Right";
 
 export default {
   name: "App",
@@ -34,7 +34,12 @@ export default {
     Digital,
     chainration,
     ChainRatio,
-    Right
+    Right,
+  },
+  computed: {
+    item() {
+      return this.$store.state.item;
+    },
   },
 };
 </script>
@@ -47,33 +52,40 @@ export default {
   z-index: 1;
 }
 
-.map-container {
+#app {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   overflow: hidden;
-  z-index: -1;
+}
+
+.map-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
 /**数字提示符 */
-.digital-wrap{
+.digital-wrap {
   left: 50%;
   display: inline-block;
   position: absolute;
   transform: translateX(-50%);
 
-  .label{
+  .label {
     font-size: 25px;
     margin-right: 10px;
     top: -10px;
     position: relative;
-    color:#0f2a42;
+    color: #0f2a42;
     font-weight: 600;
   }
 
-  & > div{
+  & > div {
     display: inline-block;
   }
 }
