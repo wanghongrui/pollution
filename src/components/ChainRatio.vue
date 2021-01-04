@@ -1,8 +1,9 @@
 <template>
     <div class="chainration">
 		<div class="number-tip-wrap">
-			<div class="number-tip">
+			<div class="number-tip tip_1">
 				<div>总地块数</div>
+				<div class="number">677</div>
 			</div>
 			<div class="number-tip">
 				<div class="label">今日下降</div>
@@ -173,7 +174,10 @@ export default {
 
 <style lang="scss">
 .chainration{
-	display: inline-block;
+	z-index: 10;
+    display: inline-block;
+	position: relative;
+	top: 55px;
 
 	.ration_chart{
 		width:300px;
