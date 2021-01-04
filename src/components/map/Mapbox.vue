@@ -3,7 +3,9 @@
 </template>
 
 <script>
-import Vue, { watch } from "vue";
+import border from "@/assets/region";
+import mask from "@turf/mask";
+import bbox from "@turf/bbox";
 
 export default {
   created() {
@@ -20,6 +22,17 @@ export default {
     styledata() {
       const styledata = JSON.parse(JSON.stringify(this.styledata));
       map.setStyle(styledata, { diff: false });
+
+      const setting = () => {
+        if (map.isStyleLoaded()) {
+          console.log("哒哒哒");
+          this.setBorder();
+
+          map.off("sourcedata", setting);
+        }
+      };
+
+      map.on("sourcedata", setting);
     },
   },
   methods: {
@@ -58,6 +71,32 @@ export default {
         repaint: true,
         trackResize: true,
         attributionControl: false,
+      });
+    },
+    setBorder() {
+      const masked = mask(border);
+
+      map.addSource("border", {
+        type: "geojson",
+        data: masked,
+      });
+      map.addLayer({
+        id: "border",
+        type: "fill",
+        source: "border",
+        layout: {},
+        paint: {
+          "fill-color": "rgb(26, 47, 101)",
+          "fill-opacity": 0.8,
+        },
+      });
+
+      this.fitBounds(border);
+    },
+    fitBounds(feature) {
+      const bounds = bbox(feature);
+      map.fitBounds(bounds, {
+        padding: 120,
       });
     },
   },

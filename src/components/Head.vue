@@ -9,14 +9,6 @@
 .head {
   display: flex;
   align-items: center;
-
-  &-logo {
-    width: 42px;
-    height: 42px;
-    background: url("../assets/logo.png");
-    background-size: contain;
-  }
-
   &-text {
     font-size: 2rem;
   }
