@@ -13,7 +13,7 @@ const chart_option = {
 	series: [{
 		name: '访问来源',
 		type: 'pie',
-		radius: ['50%', '70%'],
+		radius: ['20%', '30%'],
 		avoidLabelOverlap: false,
 		label: {
 			normal: {
@@ -34,8 +34,8 @@ const chart_option = {
 		labelLine: {
 			normal: {
 				show: true,
-				length: 20,
-				length2: 60
+				length: 4,
+				length2: 5
 			}
 		},
 		itemStyle: {
@@ -84,9 +84,7 @@ const chart_option = {
 						}
 					}
 				},
-				itemStyle: {
-					
-				}
+				itemStyle: {}
 			}
 		]
 	}]
@@ -153,6 +151,7 @@ export default {
 
 <style lang="scss">
 .chainration{
+	display: inline-block;
 	.ration_chart{
 		width:300px;
 		height: 300px;
