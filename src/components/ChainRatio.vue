@@ -44,22 +44,22 @@ const chart_option = {
 		type: 'pie',
 		radius: ['30%', '40%'],
 		avoidLabelOverlap: false,
-		label: {
-			normal: {
-				show: true,
-				formatter: '{b}\n\n占比：{d}%\n\n数量： {c}',
-				textStyle: {
-					fontSize: '14'
-				}
-			},
-			emphasis: {
-				show: true,
-				textStyle: {
-					fontWeight: 'bold',
-					fontSize: '14'
-				}
-			}
-		},
+		// label: {
+		// 	normal: {
+		// 		show: true,
+		// 		formatter: '{b}\n\n占比：{d}%\n\n数量： {c}',
+		// 		textStyle: {
+		// 			fontSize: '14'
+		// 		}
+		// 	},
+		// 	emphasis: {
+		// 		show: true,
+		// 		textStyle: {
+		// 			fontWeight: 'bold',
+		// 			fontSize: '14'
+		// 		}
+		// 	}
+		// },
 		labelLine: {
 			normal: {
 				show: true,
@@ -77,13 +77,13 @@ const chart_option = {
 		data: [{
 				value: 18,
 				name: '已处理',
-				label: {
-					normal: {
-						textStyle: {
-							color: '#ff9300'
-						}
-					}
-				},
+				// label: {
+				// 	normal: {
+				// 		textStyle: {
+				// 			color: '#ff9300'
+				// 		}
+				// 	}
+				// },
 				labelLine: {
 					normal: {
 						lineStyle: {
