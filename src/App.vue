@@ -2,6 +2,10 @@
   <div class="head-container">
     <Head />
   </div>
+  <div class="digital-wrap">
+    <div class="label">处理地块数:</div>
+    <Digital :number='8'/>
+  </div>
 
   <div class="map-container">
     <Map />
@@ -11,17 +15,19 @@
 <script>
 import Head from "./components/Head.vue";
 import Map from "./components/map/Map";
+import Digital from "./components/Digital"; // 数字滚动插件
 
 export default {
   name: "App",
   components: {
     Head,
     Map,
+    Digital
   },
 };
 </script>
 
-<style>
+<style lang="scss">
 :root {
   background: #0f2a42;
   color: #2c3e50;
@@ -37,5 +43,26 @@ export default {
   top: 0;
   overflow: hidden;
   z-index: -1;
+}
+
+/**数字提示符 */
+.digital-wrap{
+  left: 50%;
+  display: inline-block;
+  position: absolute;
+  transform: translateX(-50%);
+
+  .label{
+    font-size: 25px;
+    margin-right: 10px;
+    top: -10px;
+    position: relative;
+    color:#0f2a42;
+    font-weight: 600;
+  }
+
+  & > div{
+    display: inline-block;
+  }
 }
 </style>
