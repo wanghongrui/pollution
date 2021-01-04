@@ -18,9 +18,7 @@ export default {
   components: {
     Mapbox,
     Styles,
-  },
-  mounted() {},
-  methods: {},
+  }
 };
 </script>
 
