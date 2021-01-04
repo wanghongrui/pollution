@@ -77,13 +77,14 @@ const chart_option = {
 		data: [{
 				value: 18,
 				name: '已处理',
-				// label: {
-				// 	normal: {
-				// 		textStyle: {
-				// 			color: '#ff9300'
-				// 		}
-				// 	}
-				// },
+				label: {
+					normal: {
+						textStyle: {
+							// color: '#ff9300'
+						},
+						show : false
+					},
+				},
 				// labelLine: {
 				// 	normal: {
 				// 		lineStyle: {
@@ -104,6 +105,7 @@ const chart_option = {
 						textStyle: {
 							color: '#00e6fc'
 						}
+						,show : false
 					}
 				},
 				labelLine: {
