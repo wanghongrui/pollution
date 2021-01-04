@@ -2,10 +2,6 @@
   <div class="head-container">
     <Head />
   </div>
-  <div class="digital-wrap">
-    <div class="label">处理地块数:</div>
-    <Digital :number="888" />
-  </div>
   <!--环比组件-->
   <chain-ratio></chain-ratio>
 
@@ -63,12 +59,22 @@ body,html{
   overflow: hidden;
 }
 
+.head-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background:rgba(0,0,0,0.8);
+  width: 100%;
+}
+
 .map-container {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
+  z-index: 0;
 }
 
 /**数字提示符 */
@@ -98,6 +104,6 @@ body,html{
   top: 0;
   bottom: 0;
   width: 300px;
-  background-color: rgb(34, 34, 34);
+  background:rgba(0,0,0,0.5);
 }
 </style>
